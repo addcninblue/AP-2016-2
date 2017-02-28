@@ -17,13 +17,14 @@ public class LogMessage {
      * false otherwise.
      */
     public boolean containsWord(String keyword) {
-        if(! this.description.contains(keyword))
+        if(! this.description.contains(keyword)) // part 1.
             return false;
         int pos = this.description.indexOf(keyword);
-        if (pos != 0 && !this.description.substring(pos - 1, pos).equals(" "))
+        if (pos != 0 && !this.description.substring(pos - 1, pos).equals(" ")) // part 2. 3.
             return false;
         int keyLen = keyword.length();
-        if (this.description.length() > pos + keyLen && !this.description.substring(pos + keyLen, pos + keyLen + 1).equals(" "))
+        if (this.description.length() > pos + keyLen && // part 4
+                !(this.description.charAt(pos + keyLen) == " ".charAt(0))) // part 5
             return false;
         return true;
     }
