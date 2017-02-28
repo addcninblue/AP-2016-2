@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class LogMessage {
@@ -23,7 +22,8 @@ public class LogMessage {
         int pos = this.description.indexOf(keyword);
         if (pos != 0 && !this.description.substring(pos - 1, pos).equals(" "))
             return false;
-        if (this.description.length() > pos + keyword.length() && !this.description.substring(pos + keyword.length(), pos + keyword.length() + 1).equals(" "))
+        int keyLen = keyword.length();
+        if (this.description.length() > pos + keyLen && !this.description.substring(pos + keyLen, pos + keyLen + 1).equals(" "))
             return false;
         return true;
     }
